@@ -1,9 +1,18 @@
 <template>
-  <h1 class="text-3xl text-green-700">Getting Started</h1>
+  <section class="p-10">
+    <get-started v-if="selectedMenuItem === 'getStarted'" />
+  </section>
 </template>
 
 <script>
+import GetStarted from '~/components/measureSection/GetStarted.vue'
 export default {
   name: 'IndexPage',
+  components: { GetStarted },
+  computed: {
+    selectedMenuItem() {
+      return this.$store.getters.getSelectedMenuItem
+    },
+  },
 }
 </script>
