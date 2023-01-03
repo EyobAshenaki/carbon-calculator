@@ -7,6 +7,7 @@
     <agriculture v-if="selectedMenuItem === 'agriculture'" />
     <metals v-if="selectedMenuItem === 'metals'" />
     <minerals v-if="selectedMenuItem === 'minerals'" />
+    <total-emissions v-if="selectedMenuItem === 'totalEmissions'" />
   </section>
 </template>
 
@@ -18,6 +19,7 @@ import SolidFuels from '~/components/measureSection/SolidFuels.vue'
 import Agriculture from '~/components/measureSection/Agriculture.vue'
 import Metals from '~/components/measureSection/Metals.vue'
 import Minerals from '~/components/measureSection/Minerals.vue'
+import TotalEmissions from '~/components/measureSection/TotalEmissions.vue'
 
 export default {
   name: 'IndexPage',
@@ -29,6 +31,7 @@ export default {
     Agriculture,
     Metals,
     Minerals,
+    TotalEmissions,
   },
   computed: {
     selectedMenuItem() {
