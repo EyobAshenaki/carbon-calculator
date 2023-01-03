@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <nav
-    class="w-screen h-20 flex justify-between items-center bg-white shadow-md md:pl-3 pr-5"
+    class="w-full h-20 flex justify-between items-center bg-white shadow-md md:pl-3 pr-5"
   >
     <greencheddar-logo class="h-16 transition-[height] duration-300 ease-out" />
 

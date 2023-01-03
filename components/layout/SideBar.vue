@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="min-w-[17rem] lg:visible fixed top-20 right-0 lg:static bg-green-600"
+    class="min-w-[17rem] lg:visible fixed top-20 right-0 lg:static bg-green-600 z-50"
     :class="{ invisible: isMenuClosed }"
   >
     <section v-for="(menuItem, idx) in menuItems" :key="idx">
