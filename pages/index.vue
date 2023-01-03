@@ -9,6 +9,7 @@
     <minerals v-if="selectedMenuItem === 'minerals'" />
     <total-emissions v-if="selectedMenuItem === 'totalEmissions'" />
     <designers v-if="selectedMenuItem === 'designers'" />
+    <carbon-accountants v-if="selectedMenuItem === 'carbonAccountants'" />
   </section>
 </template>
 
@@ -22,6 +23,7 @@ import Metals from '~/components/measureSection/Metals.vue'
 import Minerals from '~/components/measureSection/Minerals.vue'
 import TotalEmissions from '~/components/measureSection/TotalEmissions.vue'
 import Designers from '~/components/menuSection/Designers.vue'
+import CarbonAccountants from '~/components/menuSection/CarbonAccountants.vue'
 
 export default {
   name: 'IndexPage',
@@ -35,6 +37,7 @@ export default {
     Minerals,
     TotalEmissions,
     Designers,
+    CarbonAccountants,
   },
   computed: {
     selectedMenuItem() {
