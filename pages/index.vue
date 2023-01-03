@@ -6,6 +6,7 @@
     <solid-fuels v-if="selectedMenuItem === 'solidFuels'" />
     <agriculture v-if="selectedMenuItem === 'agriculture'" />
     <metals v-if="selectedMenuItem === 'metals'" />
+    <minerals v-if="selectedMenuItem === 'minerals'" />
   </section>
 </template>
 
@@ -16,6 +17,7 @@ import LiquidFuels from '~/components/measureSection/LiquidFuels.vue'
 import SolidFuels from '~/components/measureSection/SolidFuels.vue'
 import Agriculture from '~/components/measureSection/Agriculture.vue'
 import Metals from '~/components/measureSection/Metals.vue'
+import Minerals from '~/components/measureSection/Minerals.vue'
 
 export default {
   name: 'IndexPage',
@@ -26,6 +28,7 @@ export default {
     SolidFuels,
     Agriculture,
     Metals,
+    Minerals,
   },
   computed: {
     selectedMenuItem() {
