@@ -3,6 +3,7 @@
     <get-started v-if="selectedMenuItem === 'getStarted'" />
     <gaseous-fuels v-if="selectedMenuItem === 'gaseousFuels'" />
     <liquid-fuels v-if="selectedMenuItem === 'liquidFuels'" />
+    <solid-fuels v-if="selectedMenuItem === 'solidFuels'" />
   </section>
 </template>
 
@@ -10,6 +11,7 @@
 import GetStarted from '~/components/measureSection/GetStarted.vue'
 import GaseousFuels from '~/components/measureSection/GaseousFuels.vue'
 import LiquidFuels from '~/components/measureSection/LiquidFuels.vue'
+import SolidFuels from '~/components/measureSection/SolidFuels.vue'
 
 export default {
   name: 'IndexPage',
@@ -17,6 +19,7 @@ export default {
     GetStarted,
     GaseousFuels,
     LiquidFuels,
+    SolidFuels,
   },
   computed: {
     selectedMenuItem() {
