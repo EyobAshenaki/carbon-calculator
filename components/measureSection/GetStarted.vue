@@ -46,7 +46,7 @@ h1 {
 }
 
 p {
-  @apply text-base indent-2 pl-4 pb-4;
+  @apply text-base pl-4 pb-4;
 }
 
 form {
