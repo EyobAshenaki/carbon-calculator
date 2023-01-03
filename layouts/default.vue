@@ -1,5 +1,6 @@
 <template>
   <div>
+    <toast v-if="toastOpen" />
     <nav-bar />
     <section class="h-full flex">
       <side-bar />
@@ -10,15 +11,22 @@
 </template>
 
 <script>
+import Toast from '~/components/global/Toast.vue'
 import NavBar from '~/components/layout/NavBar.vue'
 import FooterSection from '~/components/layout/FooterSection.vue'
 import SideBar from '~/components/layout/SideBar.vue'
 export default {
   name: 'DefaultLayout',
   components: {
+    Toast,
     NavBar,
     FooterSection,
     SideBar,
+  },
+  computed: {
+    toastOpen() {
+      return this.$store.getters.getToastState
+    },
   },
   mounted() {
     /**
