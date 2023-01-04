@@ -2,29 +2,51 @@
   <section
     class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 md:gap-0"
   >
+    <!-- Main card section -->
     <div
       class="md:w-2/4 max-w-md h-fit rounded-md shadow-lg px-10 py-7 mt-3 mx-5 md:mt-0 md:mx-auto"
     >
-      <header class="flex justify-end">
-        <p>
-          <span class="font-medium bg-gray-200 rounded-sm mr-1 py-1 px-3"
+      <!-- Card header  -->
+      <header class="w-full flex justify-end">
+        <div class="flex items-center gap-2">
+          <span class="font-medium bg-gray-100 rounded-md mr-1 py-1 px-3"
             >Contact Name</span
           >
-
-          <span class="font-mono text-lg text-green-600">John Doe</span>
-        </p>
+          <div v-if="!contactName" class="flex items-center space-x-2">
+            <div class="w-14 h-4 bg-slate-200 rounded-full animate-pulse"></div>
+            <div
+              class="w-24 h-4 bg-slate-200 rounded-full animate-[pulse_3s_ease-in_infinite]"
+            ></div>
+          </div>
+          <span v-else class="font-mono text-lg text-green-600">{{
+            contactName
+          }}</span>
+        </div>
       </header>
+
+      <!-- Card body -->
       <div class="flex flex-col items-center py-10">
-        <header class="font-semibold text-lg">Total Emissions</header>
-        <p class="font-mono text-xl text-green-600">
-          2000 <span class="font-semibold italic text-sm">KgeCo2</span>
+        <header class="font-semibold text-lg">Total Emission</header>
+        <div v-if="!totalEmission" class="flex items-center space-x-2 pt-3">
+          <div class="w-14 h-3 bg-slate-200 rounded-full animate-pulse"></div>
+          <div
+            class="w-10 h-3 bg-slate-200 rounded-full animate-[pulse_3s_ease-in_infinite]"
+          ></div>
+        </div>
+        <p v-else class="font-mono text-xl text-green-600">
+          {{ totalEmission
+          }}<span class="font-semibold italic text-sm">KgeCo2</span>
         </p>
       </div>
+
+      <!-- Card action -->
       <div class="action-section">
-        <button>Add new Contact</button>
-        <button>Finish</button>
+        <button @click="handleNewContact">Add new Contact</button>
+        <button @click="handleFinish">Finish</button>
       </div>
     </div>
+
+    <!-- Tips section -->
     <div class="tips">
       <header>Tips</header>
       <p>
@@ -45,7 +67,29 @@
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'TotalEmissions',
+  computed: {
+    contactName() {
+      return this.$store.getters['emission/getContactName']
+    },
+
+    totalEmission() {
+      return this.$store.getters['emission/getTotalEmission']
+    },
+  },
+  methods: {
+    handleFinish() {
+      console.log('Finish Clicked')
+      // Show the success message in a modal
+    },
+
+    handleNewContact() {
+      console.log('Add New Contact Clicked')
+      this.$store.dispatch('emission/nextSection')
+    },
+  },
+}
 </script>
 
 <style scoped>
