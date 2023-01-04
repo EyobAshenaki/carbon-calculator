@@ -82,10 +82,10 @@ export default {
               alt: 'minerals icon',
             },
             {
-              name: 'Total Emissions',
-              value: 'totalEmissions',
+              name: 'Total Emission',
+              value: 'totalEmission',
               icon: 'total_emissions_icon.svg',
-              alt: 'total emissions icon',
+              alt: 'total emission icon',
             },
           ],
         },

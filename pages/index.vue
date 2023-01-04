@@ -7,7 +7,7 @@
     <agriculture v-if="selectedMenuItem === 'agriculture'" />
     <metals v-if="selectedMenuItem === 'metals'" />
     <minerals v-if="selectedMenuItem === 'minerals'" />
-    <total-emissions v-if="selectedMenuItem === 'totalEmissions'" />
+    <total-emissions v-if="selectedMenuItem === 'totalEmission'" />
     <designers v-if="selectedMenuItem === 'designers'" />
     <carbon-accountants v-if="selectedMenuItem === 'carbonAccountants'" />
     <smart-energy v-if="selectedMenuItem === 'smartEnergy'" />
