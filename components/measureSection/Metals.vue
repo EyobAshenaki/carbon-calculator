@@ -68,34 +68,50 @@ export default {
         {
           name: 'Aluminum',
           value: 'aluminum',
+          conversionFactor: 0.81,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Copper',
           value: 'copper',
+          conversionFactor: 0.72,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Gold',
           value: 'gold',
+          conversionFactor: 1.32,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Silver',
           value: 'silver',
+          conversionFactor: 1.32,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Platinum',
           value: 'platinum',
+          conversionFactor: 11,
+          unit: 'kgCO2e/gram',
         },
         {
           name: 'Titanium',
           value: 'titanium',
+          conversionFactor: 4,
+          unit: 'kgCO2e/gram',
         },
         {
           name: 'Nickel',
           value: 'nickel',
+          conversionFactor: 0.84,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Cobalt',
           value: 'cobalt',
+          conversionFactor: 4,
+          unit: 'kgCO2e/gram',
         },
       ],
     }

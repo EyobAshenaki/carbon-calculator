@@ -72,34 +72,50 @@ export default {
         {
           name: 'Diamond',
           value: 'diamond',
+          conversionFactor: 0,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Quartz',
           value: 'quartz',
+          conversionFactor: 0,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Bauxite',
           value: 'bauxite',
+          conversionFactor: 0,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Gypsum',
           value: 'gypsum',
+          conversionFactor: 3.36,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Hematite',
           value: 'hematite',
+          conversionFactor: 0,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Graphite',
           value: 'graphite',
+          conversionFactor: 0.25,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Mica',
           value: 'mica',
+          conversionFactor: 0,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Calcite',
           value: 'calcite',
+          conversionFactor: 0,
+          unit: 'kgCO2e/GBP',
         },
       ],
     }

@@ -46,18 +46,26 @@ export default {
         {
           name: 'Coal (industrial)',
           value: 'industrialCoal',
+          conversionFactor: 2.41,
+          unit: 'kgCO2e/kg',
         },
         {
           name: 'Coal (electricity generation)',
           value: 'electricityGenerationCoal',
+          conversionFactor: 2.27,
+          unit: 'kgCO2e/kg',
         },
         {
           name: 'Coking coal',
           value: 'cokingCoal',
+          conversionFactor: 3.16,
+          unit: 'kgCO2e/kg',
         },
         {
           name: 'Petroleum coke',
           value: 'petroleumCoke',
+          conversionFactor: 3.38,
+          unit: 'kgCO2e/kg',
         },
       ],
     }

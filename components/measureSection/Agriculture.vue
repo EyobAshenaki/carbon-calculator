@@ -72,34 +72,50 @@ export default {
         {
           name: 'Wheat',
           value: 'wheat',
+          conversionFactor: 1.6,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Rice',
           value: 'rice',
+          conversionFactor: 0.39,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Corn',
           value: 'corn',
+          conversionFactor: 0.97,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Soybeans',
           value: 'soybeans',
+          conversionFactor: 0.07,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Potatoes',
           value: 'potatoes',
+          conversionFactor: 0.07,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Tomatoes',
           value: 'tomatoes',
+          conversionFactor: 0.07,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Apple',
           value: 'apple',
+          conversionFactor: 0.07,
+          unit: 'kgCO2e/GBP',
         },
         {
           name: 'Orange',
           value: 'orange',
+          conversionFactor: 0.07,
+          unit: 'kgCO2e/GBP',
         },
       ],
     }

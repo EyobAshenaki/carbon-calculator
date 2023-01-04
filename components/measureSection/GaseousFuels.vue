@@ -69,34 +69,50 @@ export default {
         {
           name: 'Butane',
           value: 'butane',
+          conversionFactor: 1.75,
+          unit: 'kgCO2e/litres',
         },
         {
           name: 'CNG',
           value: 'cng',
+          conversionFactor: 0.44,
+          unit: 'kgCO2e/litres',
         },
         {
           name: 'LNG',
           value: 'lng',
+          conversionFactor: 1.16,
+          unit: 'kgCO2e/litres',
         },
         {
           name: 'LPG',
           value: 'lpg',
+          conversionFactor: 1.56,
+          unit: 'kgCO2e/litres',
         },
         {
           name: 'Natural Gas',
           value: 'naturalGas',
+          conversionFactor: 2.02,
+          unit: 'kgCO2e/cubic metres',
         },
         {
           name: 'Natural Gas (100% mineral blend)',
           value: 'naturalGasMineralBlend',
+          conversionFactor: 2.03,
+          unit: 'kgCO2e/cubic metres',
         },
         {
           name: 'Other Petroleum-Based Gases',
           value: 'otherPetroleumGas',
+          conversionFactor: 0.94,
+          unit: 'kgCO2e/litres',
         },
         {
           name: 'Propane',
           value: 'propane',
+          conversionFactor: 1.54,
+          unit: 'kgCO2e/litres',
         },
       ],
     }
