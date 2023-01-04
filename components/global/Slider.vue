@@ -1,6 +1,10 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="w-80 relative">
+    <div
+      class="progress-overlay w-full h-2 absolute rounded-md bg-gray-200"
+    ></div>
+    <div class="progress h-2 absolute rounded-md bg-green-600 z-10"></div>
     <input
       v-model="rangeValue"
       class="range"
@@ -42,18 +46,37 @@ export default {
         return isNaN(this.value) ? 0 : this.value
       },
       set(value) {
-        this.$emit('rangeChange', value)
+        this.$emit('rangeChange', parseInt(value))
       },
     },
   },
   watch: {
     rangeValue(value) {
       this.setBubble(this.range, this.bubble, value)
+
+      this.setProgressWidth(value)
     },
   },
   mounted() {
     this.range = document.querySelector('.range')
     this.bubble = document.querySelector('.bubble')
+    const progress = document.querySelector('.progress')
+    const progressOverlay = document.querySelector('.progress-overlay')
+
+    const rangeRect = this.range.getBoundingClientRect()
+    const containerRect = this.range.parentElement.getBoundingClientRect()
+
+    const progressTop = rangeRect.top - containerRect.top
+    const progressLeft = rangeRect.left - containerRect.left
+    const progressOverlayTop = rangeRect.top - containerRect.top
+    const progressOverlayLeft = rangeRect.left - containerRect.left
+
+    progress.style.top = `${progressTop}px`
+    progress.style.left = `${progressLeft}px`
+    progressOverlay.style.top = `${progressOverlayTop}px`
+    progressOverlay.style.left = `${progressOverlayLeft}px`
+
+    this.setProgressWidth(this.rangeValue)
 
     this.range.addEventListener('input', () => {
       this.setBubble(this.range, this.bubble)
@@ -72,6 +95,15 @@ export default {
       // Sorta magic numbers based on size of the native UI thumb
       bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`
     },
+    setProgressWidth(value) {
+      const progress = document.querySelector('.progress')
+
+      const progressWidth = ((value - this.min) * 100) / (this.max - this.min)
+
+      progress.style.width = `calc(${progressWidth}% + (${
+        2 - progressWidth * 0.15
+      }px))`
+    },
   },
 }
 </script>
@@ -87,16 +119,14 @@ input[type='range'] {
 
 /***** Chrome, Safari, Opera, and Edge Chromium *****/
 input[type='range']::-webkit-slider-runnable-track {
-  @apply h-2 bg-gray-200 rounded-md;
-
   animation: 0.2s;
+  @apply h-2 bg-transparent rounded-md z-20;
 }
 
 /******** Firefox ********/
 input[type='range']::-moz-range-track {
-  @apply h-2 bg-gray-200 rounded-md;
-
   animation: 0.2s;
+  @apply h-2 bg-transparent rounded-md z-20;
 }
 
 /***** Thumb Styles *****/
@@ -106,12 +136,12 @@ input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
 
   /* To center the thumb used this formula - margin-top = (track height in pixels / 2) - (thumb height in pixels /2) */
-  @apply h-5 w-5 appearance-none bg-green-600 rounded-full -mt-[6px];
+  @apply h-5 w-5 appearance-none bg-green-600 rounded-full -mt-[6px] z-30;
 }
 
 /***** Firefox *****/
 input[type='range']::-moz-range-thumb {
-  @apply h-5 w-5 bg-green-600 border-none rounded-full;
+  @apply h-5 w-5 bg-green-600 border-none rounded-full z-30;
 }
 
 /***** Focus Styles *****/
