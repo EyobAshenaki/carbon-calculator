@@ -15,7 +15,7 @@
       their contracts. You can also hire one of our Designers to design this
       emissions into your contracts.
     </p>
-    <h1>Start</h1>
+    <!-- <h1>Start</h1> -->
     <form @submit.prevent="submitForm">
       <input v-model="contactName" type="text" placeholder="Contact Name" />
       <button type="submit">Next</button>
@@ -33,8 +33,7 @@ export default {
   },
   methods: {
     submitForm() {
-      this.$store.dispatch('emission/setContactName', this.contactName)
-      this.$store.dispatch('setSelectedMenuItem', 'gaseousFuels')
+      this.$store.dispatch('emission/nextSection', this.contactName)
     },
   },
 }
@@ -42,7 +41,7 @@ export default {
 
 <style scoped>
 h1 {
-  @apply text-xl text-green-600 pb-4;
+  @apply font-medium text-xl text-green-600 text-center sm:text-start pb-4;
 }
 
 p {
@@ -50,7 +49,7 @@ p {
 }
 
 form {
-  @apply flex flex-col sm:flex-row items-center gap-4;
+  @apply flex flex-col sm:flex-row items-center gap-4 mt-5;
 }
 
 input[type='text'] {
