@@ -1,7 +1,7 @@
 <template>
   <section>
     <measure-card
-      :items="gaseousFuels"
+      :items="items"
       :unit-options="unitOptions"
       :min-slider-value="0"
       :max-slider-value="200"
@@ -126,6 +126,12 @@ export default {
       ],
       unitOptions: ['litre', 'cubic metre'],
     }
+  },
+  computed: {
+    items() {
+      const cache = this.$store.getters['emission/getEmissions'].gaseousEmission
+      return cache.length !== 0 ? cache : this.gaseousFuels
+    },
   },
 }
 </script>

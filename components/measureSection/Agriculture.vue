@@ -2,7 +2,7 @@
 <template>
   <section>
     <measure-card
-      :items="agricultureProducts"
+      :items="items"
       :unit-options="unitOptions"
       :min-slider-value="0"
       :max-slider-value="200"
@@ -129,6 +129,13 @@ export default {
       ],
       unitOptions: ['pound', 'dollar', 'euro'],
     }
+  },
+  computed: {
+    items() {
+      const cache =
+        this.$store.getters['emission/getEmissions'].agricultureEmission
+      return cache.length !== 0 ? cache : this.agricultureProducts
+    },
   },
 }
 </script>

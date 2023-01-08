@@ -1,7 +1,7 @@
 <template>
   <section>
     <measure-card
-      :items="solidFuels"
+      :items="items"
       :unit-options="unitOptions"
       :min-slider-value="0"
       :max-slider-value="200"
@@ -75,6 +75,12 @@ export default {
       ],
       unitOptions: ['kilogram', 'tonne'],
     }
+  },
+  computed: {
+    items() {
+      const cache = this.$store.getters['emission/getEmissions'].solidEmission
+      return cache.length !== 0 ? cache : this.solidFuels
+    },
   },
 }
 </script>
