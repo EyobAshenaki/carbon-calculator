@@ -2,20 +2,20 @@
   <div
     class="w-full lg:w-[90%] flex flex-col justify-center items-center rounded-md shadow-lg"
   >
-    <!-- Contact Name header -->
+    <!-- Contract Name header -->
     <header class="w-full flex justify-end py-3 pr-5 sm:pr-10">
       <div class="flex items-center gap-2">
         <span class="font-medium bg-gray-100 rounded-md mr-1 py-1 px-3"
-          >Contact Name</span
+          >Contract Name</span
         >
-        <div v-if="!contactName" class="flex items-center space-x-2">
+        <div v-if="!contractName" class="flex items-center space-x-2">
           <div class="w-16 h-4 bg-slate-200 rounded-full animate-pulse"></div>
           <div
             class="w-28 h-4 bg-slate-200 rounded-full animate-[pulse_3s_ease-in_infinite]"
           ></div>
         </div>
         <span v-else class="font-mono text-lg text-green-600">{{
-          contactName
+          contractName
         }}</span>
       </div>
     </header>
@@ -128,8 +128,8 @@ export default {
     }
   },
   computed: {
-    contactName() {
-      return this.$store.getters['emission/getContactName']
+    contractName() {
+      return this.$store.getters['emission/getContractName']
     },
 
     emissionItems() {

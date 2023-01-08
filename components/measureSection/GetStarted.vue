@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>Getting Started - Start Creating Your Contact</h1>
+    <h1>Getting Started - Start Creating Your Contract</h1>
     <p>
       We've developed this calculator to help you calculate the emissions for
       each of your contracts. Please fill out this form to discover the
@@ -17,7 +17,7 @@
     </p>
     <!-- <h1>Start</h1> -->
     <form @submit.prevent="submitForm">
-      <input v-model="contactName" type="text" placeholder="Contact Name" />
+      <input v-model="contractName" type="text" placeholder="Contract Name" />
       <button type="submit">Next</button>
     </form>
   </section>
@@ -28,12 +28,12 @@ export default {
   name: 'GetStarted',
   data() {
     return {
-      contactName: this.$store.getters['emission/getContactName'],
+      contractName: this.$store.getters['emission/getContractName'],
     }
   },
   methods: {
     submitForm() {
-      this.$store.dispatch('emission/nextSection', this.contactName)
+      this.$store.dispatch('emission/nextSection', this.contractName)
     },
   },
 }

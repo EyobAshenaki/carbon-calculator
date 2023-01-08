@@ -1,5 +1,5 @@
 export const state = () => ({
-  contactName: '',
+  contractName: '',
   emissions: {
     gaseousEmission: [],
     liquidEmission: [],
@@ -38,8 +38,8 @@ export const state = () => ({
 })
 
 export const getters = {
-  getContactName(state) {
-    return state.contactName
+  getContractName(state) {
+    return state.contractName
   },
   getEmissions(state) {
     return state.emissions
@@ -53,8 +53,8 @@ export const getters = {
 }
 
 export const mutations = {
-  SET_CONTACT_NAME(state, payload) {
-    state.contactName = payload
+  SET_CONTrACT_NAME(state, payload) {
+    state.contractName = payload
   },
   SET_GAS_EMISSION(state, payload) {
     state.emissions.gaseousEmission = payload
@@ -95,7 +95,7 @@ export const actions = {
 
         dispatch('resetEmission')
 
-        commit('SET_CONTACT_NAME', emissionData)
+        commit('SET_CONTrACT_NAME', emissionData)
         break
 
       case 'gaseousFuels':
@@ -195,7 +195,7 @@ export const actions = {
   },
 
   resetEmission({ commit }) {
-    commit('SET_CONTACT_NAME', '')
+    commit('SET_CONTrACT_NAME', '')
     commit('SET_GAS_EMISSION', [])
     commit('SET_LIQUID_EMISSION', [])
     commit('SET_SOLID_EMISSION', [])
