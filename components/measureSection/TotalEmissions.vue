@@ -88,8 +88,7 @@ export default {
     },
 
     handleNewContract() {
-      console.log('Add New Contract Clicked')
-      this.$store.dispatch('emission/nextSection')
+      this.$store.dispatch('emission/nextSection', {})
     },
   },
 }
