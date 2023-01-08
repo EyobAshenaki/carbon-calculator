@@ -98,6 +98,8 @@ export default {
     setProgressWidth(value) {
       const progress = document.querySelector('.progress')
 
+      value = value > this.max ? this.max : value < this.min ? this.min : value
+
       const progressWidth = ((value - this.min) * 100) / (this.max - this.min)
 
       progress.style.width = `calc(${progressWidth}% + (${
