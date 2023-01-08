@@ -75,12 +75,12 @@ export default {
               icon: 'metals_icon.svg',
               alt: 'metals icon',
             },
-            {
-              name: 'Minerals',
-              value: 'minerals',
-              icon: 'minerals_icon.svg',
-              alt: 'minerals icon',
-            },
+            // {
+            //   name: 'Minerals',
+            //   value: 'minerals',
+            //   icon: 'minerals_icon.svg',
+            //   alt: 'minerals icon',
+            // },
             {
               name: 'Total Emission',
               value: 'totalEmission',

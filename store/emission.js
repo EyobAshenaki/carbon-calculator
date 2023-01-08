@@ -131,22 +131,22 @@ export const actions = {
         break
 
       case 'metals':
-        commit('SET_SELECTED_MENU_ITEM', 'minerals', { root: true })
+        commit('SET_SELECTED_MENU_ITEM', 'totalEmission', { root: true })
 
         if (!emissionData) return
 
         commit('SET_METALS_EMISSION', emissionData)
         break
 
-      case 'minerals':
-        commit('SET_SELECTED_MENU_ITEM', 'totalEmission', {
-          root: true,
-        })
+      // case 'minerals':
+      //   commit('SET_SELECTED_MENU_ITEM', 'totalEmission', {
+      //     root: true,
+      //   })
 
-        if (!emissionData) return
+      //   if (!emissionData) return
 
-        commit('SET_MINERALS_EMISSION', emissionData)
-        break
+      //   commit('SET_MINERALS_EMISSION', emissionData)
+      //   break
 
       case 'totalEmission':
         commit('SET_SELECTED_MENU_ITEM', 'getStarted', { root: true })
@@ -183,11 +183,11 @@ export const actions = {
       case 'metals':
         commit('SET_SELECTED_MENU_ITEM', 'agriculture', { root: true })
         break
-      case 'minerals':
-        commit('SET_SELECTED_MENU_ITEM', 'metals', { root: true })
-        break
+      // case 'minerals':
+      //   commit('SET_SELECTED_MENU_ITEM', 'metals', { root: true })
+      //   break
       case 'totalEmission':
-        commit('SET_SELECTED_MENU_ITEM', 'minerals', { root: true })
+        commit('SET_SELECTED_MENU_ITEM', 'metals', { root: true })
         break
       default:
         break
