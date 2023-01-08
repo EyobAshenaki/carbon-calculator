@@ -34,8 +34,8 @@
           ></div>
         </div>
         <p v-else class="font-mono text-xl text-green-600">
-          {{ totalEmission
-          }}<span class="font-semibold italic text-sm">KgeCo2</span>
+          {{ totalEmission }}
+          <span class="font-semibold italic text-sm">KgeCo2</span>
         </p>
       </div>
 
@@ -78,6 +78,9 @@ export default {
       return this.$store.getters['emission/getTotalEmission']
     },
   },
+  beforeMount() {
+    this.$store.dispatch('emission/calculateTotalEmission')
+  },
   methods: {
     handleFinish() {
       console.log('Finish Clicked')
@@ -94,7 +97,7 @@ export default {
 
 <style scoped>
 .tips {
-  @apply md:min-w-[15.5rem] md:w-1/4 h-fit flex flex-col items-center gap-4 text-white bg-green-600 p-5 mb-5;
+  @apply md:min-w-[15.5rem] md:w-1/4 h-fit flex flex-col items-center gap-4 font-medium text-white bg-green-600 rounded-md p-5 mb-5;
 }
 
 .tips header {

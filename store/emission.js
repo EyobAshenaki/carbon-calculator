@@ -1,38 +1,54 @@
 export const state = () => ({
   contactName: '',
-  gaseousEmission: [],
-  liquidEmission: [],
-  solidEmission: [],
-  agricultureEmission: [],
-  metalsEmission: [],
-  mineralsEmission: [],
+  emissions: {
+    gaseousEmission: [],
+    liquidEmission: [],
+    solidEmission: [],
+    agricultureEmission: [],
+    metalsEmission: [],
+    mineralsEmission: [],
+  },
   totalEmission: 0,
+  conversionData: {
+    pound: {
+      dollar: 1.21,
+      euro: 1.13,
+    },
+    dollar: {
+      pound: 0.83,
+      euro: 0.94,
+    },
+    euro: {
+      pound: 0.88,
+      dollar: 1.07,
+    },
+    kilogram: {
+      tonne: 0.001,
+    },
+    tonne: {
+      kilogram: 1000,
+    },
+    litres: {
+      'cubic metre': 0.001,
+    },
+    'cubic metre': {
+      litres: 1000,
+    },
+  },
 })
 
 export const getters = {
   getContactName(state) {
     return state.contactName
   },
-  getGasEmission(state) {
-    return state.gaseousEmission
-  },
-  getLiquidEmission(state) {
-    return state.liquidEmission
-  },
-  getSolidEmission(state) {
-    return state.solidEmission
-  },
-  getAgricultureEmission(state) {
-    return state.agricultureEmission
-  },
-  getMetalsEmission(state) {
-    return state.metalsEmission
-  },
-  getMineralsEmission(state) {
-    return state.mineralsEmission
+  getEmissions(state) {
+    return state.emissions
   },
   getTotalEmission(state) {
     return state.totalEmission
+  },
+  getConversionData(state) {
+    return state.conversionData
   },
 }
 
@@ -41,22 +57,22 @@ export const mutations = {
     state.contactName = payload
   },
   SET_GAS_EMISSION(state, payload) {
-    state.gaseousEmission = payload
+    state.emissions.gaseousEmission = payload
   },
   SET_LIQUID_EMISSION(state, payload) {
-    state.liquidEmission = payload
+    state.emissions.liquidEmission = payload
   },
   SET_SOLID_EMISSION(state, payload) {
-    state.solidEmission = payload
+    state.emissions.solidEmission = payload
   },
   SET_AGRICULTURE_EMISSION(state, payload) {
-    state.agricultureEmission = payload
+    state.emissions.agricultureEmission = payload
   },
   SET_METALS_EMISSION(state, payload) {
-    state.metalsEmission = payload
+    state.emissions.metalsEmission = payload
   },
   SET_MINERALS_EMISSION(state, payload) {
-    state.mineralsEmission = payload
+    state.emissions.mineralsEmission = payload
   },
   SET_TOTAL_EMISSION(state, payload) {
     state.totalEmission = payload
@@ -64,57 +80,62 @@ export const mutations = {
 }
 
 export const actions = {
-  nextSection({ dispatch, commit, rootState }, payload) {
+  async nextSection({ dispatch, commit, rootState }, { emissionData }) {
+    emissionData = await dispatch('calculateConversion', {
+      emissionData,
+    })
+
     switch (rootState.selectedMenuItem) {
       case 'getStarted':
         commit('SET_SELECTED_MENU_ITEM', 'gaseousFuels', {
           root: true,
         })
 
-        if (!payload) return
+        if (!emissionData) return
 
         dispatch('resetEmission')
-        commit('SET_CONTACT_NAME', payload)
+
+        commit('SET_CONTACT_NAME', emissionData)
         break
 
       case 'gaseousFuels':
         commit('SET_SELECTED_MENU_ITEM', 'liquidFuels', { root: true })
 
-        if (!payload) return
+        if (!emissionData) return
 
-        commit('SET_GAS_EMISSION', payload)
+        commit('SET_GAS_EMISSION', emissionData)
         break
 
       case 'liquidFuels':
         commit('SET_SELECTED_MENU_ITEM', 'solidFuels', { root: true })
 
-        if (!payload) return
+        if (!emissionData) return
 
-        commit('SET_LIQUID_EMISSION', payload)
+        commit('SET_LIQUID_EMISSION', emissionData)
         break
 
       case 'solidFuels':
         commit('SET_SELECTED_MENU_ITEM', 'agriculture', { root: true })
 
-        if (!payload) return
+        if (!emissionData) return
 
-        commit('SET_SOLID_EMISSION', payload)
+        commit('SET_SOLID_EMISSION', emissionData)
         break
 
       case 'agriculture':
         commit('SET_SELECTED_MENU_ITEM', 'metals', { root: true })
 
-        if (!payload) return
+        if (!emissionData) return
 
-        commit('SET_AGRICULTURE_EMISSION', payload)
+        commit('SET_AGRICULTURE_EMISSION', emissionData)
         break
 
       case 'metals':
         commit('SET_SELECTED_MENU_ITEM', 'minerals', { root: true })
 
-        if (!payload) return
+        if (!emissionData) return
 
-        commit('SET_METALS_EMISSION', payload)
+        commit('SET_METALS_EMISSION', emissionData)
         break
 
       case 'minerals':
@@ -122,17 +143,17 @@ export const actions = {
           root: true,
         })
 
-        if (!payload) return
+        if (!emissionData) return
 
-        commit('SET_MINERALS_EMISSION', payload)
+        commit('SET_MINERALS_EMISSION', emissionData)
         break
 
       case 'totalEmission':
         commit('SET_SELECTED_MENU_ITEM', 'getStarted', { root: true })
 
-        if (!payload) return
+        if (!emissionData) return
 
-        commit('SET_TOTAL_EMISSION', payload)
+        commit('SET_TOTAL_EMISSION', emissionData)
         break
 
       default:
@@ -184,5 +205,37 @@ export const actions = {
     commit('SET_TOTAL_EMISSION', 0)
   },
 
-  // calculateTotalEmission({ commit, state }) {
+  calculateTotalEmission({ commit, getters }) {
+    const emissions = getters.getEmissions
+
+    const totalEmission = Object.values(emissions).reduce((total, emission) => {
+      const tempEmission = emission.reduce((acc, cur) => {
+        const tempCur = parseFloat(cur.amount) * cur.conversionFactor
+        return acc + tempCur
+      }, 0)
+      return total + tempEmission
+    }, 0)
+
+    commit('SET_TOTAL_EMISSION', totalEmission)
+  },
+
+  convertUnit({ state }, { value, fromUnit, toUnit }) {
+    return value / state.conversionData[fromUnit][toUnit]
+  },
+
+  // convert emission data values into the provided unit
+  calculateConversion({ dispatch }, { emissionData }) {
+    emissionData = emissionData.map(async (item) => {
+      if (item.unit !== item.targetUnit)
+        item.conversionFactor = await dispatch('convertUnit', {
+          value: item.conversionFactor,
+          fromUnit: item.unit,
+          toUnit: item.targetUnit,
+        })
+      item.unit = item.targetUnit
+      return item
+    })
+
+    return Promise.all(emissionData)
+  },
 }
