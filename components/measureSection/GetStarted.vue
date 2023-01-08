@@ -33,7 +33,9 @@ export default {
   },
   methods: {
     submitForm() {
-      this.$store.dispatch('emission/nextSection', this.contractName)
+      this.$store.dispatch('emission/nextSection', {
+        contractName: this.contractName,
+      })
     },
   },
 }

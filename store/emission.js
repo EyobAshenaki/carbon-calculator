@@ -53,7 +53,7 @@ export const getters = {
 }
 
 export const mutations = {
-  SET_CONTrACT_NAME(state, payload) {
+  SET_CONTRACT_NAME(state, payload) {
     state.contractName = payload
   },
   SET_GAS_EMISSION(state, payload) {
@@ -80,10 +80,15 @@ export const mutations = {
 }
 
 export const actions = {
-  async nextSection({ dispatch, commit, rootState }, { emissionData }) {
-    emissionData = await dispatch('calculateConversion', {
-      emissionData,
-    })
+  async nextSection(
+    { dispatch, commit, rootState },
+    { contractName = '', emissionData }
+  ) {
+    emissionData = emissionData
+      ? await dispatch('calculateConversion', {
+          emissionData,
+        })
+      : null
 
     switch (rootState.selectedMenuItem) {
       case 'getStarted':
@@ -91,11 +96,11 @@ export const actions = {
           root: true,
         })
 
-        if (!emissionData) return
+        if (!contractName) return
 
         dispatch('resetEmission')
 
-        commit('SET_CONTrACT_NAME', emissionData)
+        commit('SET_CONTRACT_NAME', contractName)
         break
 
       case 'gaseousFuels':
@@ -195,7 +200,7 @@ export const actions = {
   },
 
   resetEmission({ commit }) {
-    commit('SET_CONTrACT_NAME', '')
+    commit('SET_CONTRACT_NAME', '')
     commit('SET_GAS_EMISSION', [])
     commit('SET_LIQUID_EMISSION', [])
     commit('SET_SOLID_EMISSION', [])

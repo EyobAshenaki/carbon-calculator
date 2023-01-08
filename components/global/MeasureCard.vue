@@ -52,7 +52,7 @@
           @rangeChange="handleSliderValueChange($event)"
         />
         <select-input
-          :value="selectedEmissionItem.unit"
+          :value="selectedEmissionItem.targetUnit"
           :options="unitOptions"
           class="w-32"
           @unitChange="handleUnitChange($event)"
@@ -123,6 +123,8 @@ export default {
         name: '',
         value: '',
         amount: 0,
+        unit: '',
+        targetUnit: '',
       },
       sliderValue: 0,
     }
@@ -162,9 +164,6 @@ export default {
               child.setAttribute('stroke', 'black')
             if (child.getAttribute('fill') === 'white')
               child.setAttribute('fill', 'black')
-            // if (emissionItem.value === 'petroleumCoke') {
-            //   child.setAttribute('fill', 'black')
-            // }
           }
         }
       }
@@ -175,9 +174,6 @@ export default {
           child.setAttribute('stroke', 'white')
         if (child.getAttribute('fill') === 'black')
           child.setAttribute('fill', 'white')
-        // if (emissionItem.value === 'petroleumCoke') {
-        //   child.setAttribute('fill', 'white')
-        // }
       }
     },
 
