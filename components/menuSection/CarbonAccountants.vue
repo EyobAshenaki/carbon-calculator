@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import carbonAccountantsCard from '@/components/global/infoCard.vue'
+import carbonAccountantsCard from '~/components/global/InfoCard.vue'
 import InquiryModal from '@/components/global/InquiryModal.vue'
 export default {
   components: { carbonAccountantsCard, InquiryModal },

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import smartEnergyCard from '@/components/global/infoCard.vue'
+import smartEnergyCard from '~/components/global/InfoCard.vue'
 import InquiryModal from '@/components/global/InquiryModal.vue'
 export default {
   components: { smartEnergyCard, InquiryModal },

@@ -46,6 +46,8 @@
       </div>
     </div>
 
+    <facts-modal v-if="isFactsModalOpen" @closeModal="closeFactsModal" />
+
     <!-- Tips section -->
     <div class="tips">
       <header>Tips</header>
@@ -67,8 +69,17 @@
 </template>
 
 <script>
+import FactsModal from '@/components/global/FactsModal.vue'
 export default {
   name: 'TotalEmissions',
+  components: {
+    FactsModal,
+  },
+  data() {
+    return {
+      isFactsModalOpen: false,
+    }
+  },
   computed: {
     contractName() {
       return this.$store.getters['emission/getContractName']
@@ -83,12 +94,15 @@ export default {
   },
   methods: {
     handleFinish() {
-      console.log('Finish Clicked')
-      // Show the success message in a modal
+      if (!this.isFactsModalOpen) this.isFactsModalOpen = true
     },
 
     handleNewContract() {
       this.$store.dispatch('emission/nextSection', {})
+    },
+
+    closeFactsModal() {
+      if (this.isFactsModalOpen) this.isFactsModalOpen = false
     },
   },
 }

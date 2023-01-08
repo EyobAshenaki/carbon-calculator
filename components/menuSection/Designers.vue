@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import designersCard from '~/components/global/infoCard.vue'
+import designersCard from '~/components/global/InfoCard.vue'
 import InquiryModal from '~/components/global/InquiryModal.vue'
 export default {
   components: { designersCard, InquiryModal },
