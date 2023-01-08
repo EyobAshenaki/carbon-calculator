@@ -3,6 +3,7 @@
   <section>
     <measure-card
       :items="agricultureProducts"
+      :unit-options="unitOptions"
       :min-slider-value="0"
       :max-slider-value="200"
     >
@@ -73,51 +74,60 @@ export default {
           name: 'Wheat',
           value: 'wheat',
           conversionFactor: 1.6,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Rice',
           value: 'rice',
           conversionFactor: 0.39,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Corn',
           value: 'corn',
           conversionFactor: 0.97,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Soybeans',
           value: 'soybeans',
           conversionFactor: 0.07,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Potatoes',
           value: 'potatoes',
           conversionFactor: 0.07,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Tomatoes',
           value: 'tomatoes',
           conversionFactor: 0.07,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Apple',
           value: 'apple',
           conversionFactor: 0.07,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Orange',
           value: 'orange',
           conversionFactor: 0.07,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
       ],
+      unitOptions: ['pound', 'dollar', 'euro'],
     }
   },
 }

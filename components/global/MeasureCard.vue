@@ -44,12 +44,20 @@
 
     <!-- Slider section -->
     <div class="flex flex-col items-center gap-1 py-10">
-      <slider
-        :value="parseInt(sliderValue)"
-        :min="minSliderValue"
-        :max="maxSliderValue"
-        @rangeChange="handleSliderValueChange($event)"
-      />
+      <div class="flex items-center gap-5">
+        <slider
+          :value="parseInt(sliderValue)"
+          :min="minSliderValue"
+          :max="maxSliderValue"
+          @rangeChange="handleSliderValueChange($event)"
+        />
+        <select-input
+          :value="selectedEmissionItem.unit"
+          :options="unitOptions"
+          class="w-32"
+          @unitChange="handleUnitChange($event)"
+        />
+      </div>
       <p class="font-medium text-lg text-green-600">
         {{ selectedEmissionItem.name }}
       </p>
@@ -84,13 +92,19 @@
 
 <script>
 import Slider from '~/components/global/Slider.vue'
+import SelectInput from '~/components/global/SelectInput.vue'
 export default {
   name: 'GaseousFuel',
   components: {
     Slider,
+    SelectInput,
   },
   props: {
     items: {
+      type: Array,
+      default: () => [],
+    },
+    unitOptions: {
       type: Array,
       default: () => [],
     },
@@ -119,11 +133,11 @@ export default {
     },
 
     emissionItems() {
-      const tempItems = this.items
-      for (const item of tempItems) {
+      const tempEmissionItems = this.items
+      for (const item of tempEmissionItems) {
         if (item.amount === undefined) item.amount = 0
       }
-      return tempItems
+      return tempEmissionItems
     },
   },
   watch: {
@@ -171,6 +185,11 @@ export default {
       this.sliderValue = e
     },
 
+    handleUnitChange(e) {
+      // this.selectedEmissionUnit = e
+      this.selectedEmissionItem.targetUnit = e
+    },
+
     handleSkip() {
       // Proceeds to next section without saving data
       this.$store.dispatch('emission/nextSection')
@@ -178,7 +197,9 @@ export default {
 
     handleNext() {
       // Proceeds to next section and save data
-      this.$store.dispatch('emission/nextSection', this.emissionItems)
+      this.$store.dispatch('emission/nextSection', {
+        emissionData: this.emissionItems,
+      })
     },
   },
 }

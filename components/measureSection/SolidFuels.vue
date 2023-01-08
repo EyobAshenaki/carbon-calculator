@@ -2,6 +2,7 @@
   <section>
     <measure-card
       :items="solidFuels"
+      :unit-options="unitOptions"
       :min-slider-value="0"
       :max-slider-value="200"
     >
@@ -47,27 +48,32 @@ export default {
           name: 'Coal (industrial)',
           value: 'industrialCoal',
           conversionFactor: 2.41,
-          unit: 'kgCO2e/kg',
+          unit: 'kilogram',
+          targetUnit: 'kilogram',
         },
         {
           name: 'Coal (electricity generation)',
           value: 'electricityGenerationCoal',
           conversionFactor: 2.27,
-          unit: 'kgCO2e/kg',
+          unit: 'kilogram',
+          targetUnit: 'kilogram',
         },
         {
           name: 'Coking coal',
           value: 'cokingCoal',
           conversionFactor: 3.16,
-          unit: 'kgCO2e/kg',
+          unit: 'kilogram',
+          targetUnit: 'kilogram',
         },
         {
           name: 'Petroleum coke',
           value: 'petroleumCoke',
           conversionFactor: 3.38,
-          unit: 'kgCO2e/kg',
+          unit: 'kilogram',
+          targetUnit: 'kilogram',
         },
       ],
+      unitOptions: ['kilogram', 'tonne'],
     }
   },
 }

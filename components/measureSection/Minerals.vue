@@ -3,6 +3,7 @@
   <section>
     <measure-card
       :items="minerals"
+      :unit-options="unitOptions"
       :min-slider-value="0"
       :max-slider-value="200"
     >
@@ -73,51 +74,60 @@ export default {
           name: 'Diamond',
           value: 'diamond',
           conversionFactor: 0,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Quartz',
           value: 'quartz',
           conversionFactor: 0,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Bauxite',
           value: 'bauxite',
           conversionFactor: 0,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Gypsum',
           value: 'gypsum',
           conversionFactor: 3.36,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Hematite',
           value: 'hematite',
           conversionFactor: 0,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Graphite',
           value: 'graphite',
           conversionFactor: 0.25,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Mica',
           value: 'mica',
           conversionFactor: 0,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
         {
           name: 'Calcite',
           value: 'calcite',
           conversionFactor: 0,
-          unit: 'kgCO2e/GBP',
+          unit: 'pound',
+          targetUnit: 'pound',
         },
       ],
+      unitOptions: ['pound', 'dollar', 'euro'],
     }
   },
 }

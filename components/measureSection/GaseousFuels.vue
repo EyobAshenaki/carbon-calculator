@@ -2,6 +2,7 @@
   <section>
     <measure-card
       :items="gaseousFuels"
+      :unit-options="unitOptions"
       :min-slider-value="0"
       :max-slider-value="200"
     >
@@ -70,51 +71,60 @@ export default {
           name: 'Butane',
           value: 'butane',
           conversionFactor: 1.75,
-          unit: 'kgCO2e/litres',
+          unit: 'litre',
+          targetUnit: 'litre',
         },
         {
           name: 'CNG',
           value: 'cng',
           conversionFactor: 0.44,
-          unit: 'kgCO2e/litres',
+          unit: 'litre',
+          targetUnit: 'litre',
         },
         {
           name: 'LNG',
           value: 'lng',
           conversionFactor: 1.16,
-          unit: 'kgCO2e/litres',
+          unit: 'litre',
+          targetUnit: 'litre',
         },
         {
           name: 'LPG',
           value: 'lpg',
           conversionFactor: 1.56,
-          unit: 'kgCO2e/litres',
+          unit: 'litre',
+          targetUnit: 'litre',
         },
         {
           name: 'Natural Gas',
           value: 'naturalGas',
           conversionFactor: 2.02,
-          unit: 'kgCO2e/cubic metres',
+          unit: 'cubic metre',
+          targetUnit: 'cubic metre',
         },
         {
           name: 'Natural Gas (100% mineral blend)',
           value: 'naturalGasMineralBlend',
           conversionFactor: 2.03,
-          unit: 'kgCO2e/cubic metres',
+          unit: 'cubic metre',
+          targetUnit: 'cubic metre',
         },
         {
           name: 'Other Petroleum-Based Gases',
           value: 'otherPetroleumGas',
           conversionFactor: 0.94,
-          unit: 'kgCO2e/litres',
+          unit: 'litre',
+          targetUnit: 'litre',
         },
         {
           name: 'Propane',
           value: 'propane',
           conversionFactor: 1.54,
-          unit: 'kgCO2e/litres',
+          unit: 'litre',
+          targetUnit: 'litre',
         },
       ],
+      unitOptions: ['litre', 'cubic metre'],
     }
   },
 }
