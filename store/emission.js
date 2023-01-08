@@ -28,11 +28,11 @@ export const state = () => ({
     tonne: {
       kilogram: 1000,
     },
-    litres: {
+    litre: {
       'cubic metre': 0.001,
     },
     'cubic metre': {
-      litres: 1000,
+      litre: 1000,
     },
   },
 })
@@ -92,19 +92,16 @@ export const actions = {
 
     switch (rootState.selectedMenuItem) {
       case 'getStarted':
-        commit('SET_SELECTED_MENU_ITEM', 'gaseousFuels', {
-          root: true,
-        })
+        dispatch('setSelectedMenuItem', 'gaseousFuels', { root: true })
 
         if (!contractName) return
 
         dispatch('resetEmission')
-
         commit('SET_CONTRACT_NAME', contractName)
         break
 
       case 'gaseousFuels':
-        commit('SET_SELECTED_MENU_ITEM', 'liquidFuels', { root: true })
+        dispatch('setSelectedMenuItem', 'liquidFuels', { root: true })
 
         if (!emissionData) return
 
@@ -112,7 +109,7 @@ export const actions = {
         break
 
       case 'liquidFuels':
-        commit('SET_SELECTED_MENU_ITEM', 'solidFuels', { root: true })
+        dispatch('setSelectedMenuItem', 'solidFuels', { root: true })
 
         if (!emissionData) return
 
@@ -120,7 +117,7 @@ export const actions = {
         break
 
       case 'solidFuels':
-        commit('SET_SELECTED_MENU_ITEM', 'agriculture', { root: true })
+        dispatch('setSelectedMenuItem', 'agriculture', { root: true })
 
         if (!emissionData) return
 
@@ -128,7 +125,7 @@ export const actions = {
         break
 
       case 'agriculture':
-        commit('SET_SELECTED_MENU_ITEM', 'metals', { root: true })
+        dispatch('setSelectedMenuItem', 'metals', { root: true })
 
         if (!emissionData) return
 
@@ -136,7 +133,7 @@ export const actions = {
         break
 
       case 'metals':
-        commit('SET_SELECTED_MENU_ITEM', 'totalEmission', { root: true })
+        dispatch('setSelectedMenuItem', 'totalEmission', { root: true })
 
         if (!emissionData) return
 
@@ -144,9 +141,7 @@ export const actions = {
         break
 
       // case 'minerals':
-      //   commit('SET_SELECTED_MENU_ITEM', 'totalEmission', {
-      //     root: true,
-      //   })
+      // dispatch('setSelectedMenuItem', 'totalEmission', { root: true })
 
       //   if (!emissionData) return
 
@@ -154,11 +149,8 @@ export const actions = {
       //   break
 
       case 'totalEmission':
-        commit('SET_SELECTED_MENU_ITEM', 'getStarted', { root: true })
-
-        if (!emissionData) return
-
-        commit('SET_TOTAL_EMISSION', emissionData)
+        dispatch('resetEmission')
+        dispatch('setSelectedMenuItem', 'getStarted', { root: true })
         break
 
       default:
@@ -225,7 +217,7 @@ export const actions = {
   },
 
   convertUnit({ state }, { value, fromUnit, toUnit }) {
-    return value / state.conversionData[fromUnit][toUnit]
+    return value * state.conversionData[fromUnit][toUnit]
   },
 
   // convert emission data values into the provided unit
