@@ -1,9 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <nav
-    class="w-full h-20 flex justify-between items-center bg-white shadow-md md:pl-3 pr-5"
+    class="w-full h-20 flex justify-between items-center bg-white shadow-md px-5 md:pl-8"
   >
-    <greencheddar-logo class="h-16 transition-[height] duration-300 ease-out" />
+    <carbon-calculator-logo
+      class="h-16 transition-[height] duration-300 ease-out"
+    />
 
     <!-- Mobile menu icon -->
     <div class="lg:hidden flex" @click="toggleMenu">
@@ -40,11 +42,11 @@
 </template>
 
 <script>
-import GreencheddarLogo from '@/components/icons/GreencheddarLogo.vue'
+import CarbonCalculatorLogo from '~/components/icons/CarbonCalculatorLogo.vue'
 export default {
   name: 'NavBar',
   components: {
-    GreencheddarLogo,
+    CarbonCalculatorLogo,
   },
   data() {
     return {
