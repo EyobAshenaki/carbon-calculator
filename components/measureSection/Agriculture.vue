@@ -23,20 +23,20 @@
         <soybeans-icon />
       </template>
 
-      <template #potatoes>
-        <potatoes-icon />
+      <template #cotton>
+        <cotton-icon />
       </template>
 
-      <template #tomatoes>
-        <tomatoes-icon />
+      <template #cocoa>
+        <cocoa-icon />
       </template>
 
-      <template #apple>
-        <apple-icon />
+      <template #sugar>
+        <sugar-icon />
       </template>
 
-      <template #orange>
-        <orange-icon />
+      <template #coffee>
+        <coffee-icon />
       </template>
     </measure-card>
   </section>
@@ -48,10 +48,10 @@ import WheatIcon from '~/components/icons/measure_section/agriculture/WheatIcon.
 import RiceIcon from '~/components/icons/measure_section/agriculture/RiceIcon.vue'
 import CornIcon from '~/components/icons/measure_section/agriculture/CornIcon.vue'
 import SoybeansIcon from '~/components/icons/measure_section/agriculture/SoybeansIcon.vue'
-import PotatoesIcon from '~/components/icons/measure_section/agriculture/PotatoesIcon.vue'
-import TomatoesIcon from '~/components/icons/measure_section/agriculture/TomatoesIcon.vue'
-import AppleIcon from '~/components/icons/measure_section/agriculture/AppleIcon.vue'
-import OrangeIcon from '~/components/icons/measure_section/agriculture/OrangeIcon.vue'
+import CottonIcon from '~/components/icons/measure_section/agriculture/CottonIcon.vue'
+import CocoaIcon from '~/components/icons/measure_section/agriculture/CocoaIcon.vue'
+import SugarIcon from '~/components/icons/measure_section/agriculture/SugarIcon.vue'
+import CoffeeIcon from '~/components/icons/measure_section/agriculture/CoffeeIcon.vue'
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
@@ -62,10 +62,10 @@ export default {
     RiceIcon,
     CornIcon,
     SoybeansIcon,
-    PotatoesIcon,
-    TomatoesIcon,
-    AppleIcon,
-    OrangeIcon,
+    CottonIcon,
+    CocoaIcon,
+    SugarIcon,
+    CoffeeIcon,
   },
   data() {
     return {
@@ -99,30 +99,30 @@ export default {
           targetUnit: 'pound',
         },
         {
-          name: 'Potatoes',
-          value: 'potatoes',
-          conversionFactor: 0.07,
+          name: 'Cotton',
+          value: 'cotton',
+          conversionFactor: 0.397,
           unit: 'pound',
           targetUnit: 'pound',
         },
         {
-          name: 'Tomatoes',
-          value: 'tomatoes',
-          conversionFactor: 0.07,
+          name: 'Cocoa',
+          value: 'cocoa',
+          conversionFactor: 0.397,
           unit: 'pound',
           targetUnit: 'pound',
         },
         {
-          name: 'Apple',
-          value: 'apple',
-          conversionFactor: 0.07,
+          name: 'Sugar',
+          value: 'sugar',
+          conversionFactor: 2.78,
           unit: 'pound',
           targetUnit: 'pound',
         },
         {
-          name: 'Orange',
-          value: 'orange',
-          conversionFactor: 0.07,
+          name: 'Coffee',
+          value: 'coffee',
+          conversionFactor: 0.397,
           unit: 'pound',
           targetUnit: 'pound',
         },
