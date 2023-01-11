@@ -1,16 +1,14 @@
 <template>
   <div class="overlay flex justify-center items-center">
     <div
-      class="md:w-[30rem] md:h-fit flex flex-col items-center rounded-md bg-white p-5 pt-0"
+      class="md:w-[30rem] relative md:h-fit flex flex-col items-center rounded-md bg-white p-12"
     >
       <!-- Close button -->
-      <div class="w-full flex justify-end -mr-5">
-        <button @click="closeModal">
-          <close-icon
-            class="w-7 h-7 cursor-pointer rounded-full hover:bg-gray-200 m-2 p-1"
-          />
-        </button>
-      </div>
+      <button class="absolute top-1 right-1" @click="closeModal">
+        <close-icon
+          class="w-7 h-7 cursor-pointer rounded-full hover:bg-gray-200 m-2 p-1"
+        />
+      </button>
       <!-- <p>Please enter your email</p> -->
       <form
         action="https://form2channel.com/?form=carbon_calculator_inquiry"

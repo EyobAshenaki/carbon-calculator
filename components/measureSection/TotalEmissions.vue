@@ -48,9 +48,9 @@
 
     <facts-modal v-if="isFactsModalOpen" @closeModal="closeFactsModal" />
 
-    <!-- Tips section -->
+    <!-- What's Next section -->
     <div class="tips">
-      <header>Tips</header>
+      <header>What's Next</header>
       <p>
         If you'd like our in-house team to support you with designing this
         numbers onto your menu, please click on the Order Designer on the right
