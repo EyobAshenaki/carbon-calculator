@@ -18,7 +18,7 @@
               class="w-24 h-4 bg-slate-200 rounded-full animate-[pulse_3s_ease-in_infinite]"
             ></div>
           </div>
-          <span v-else class="font-mono text-lg text-green-600">{{
+          <span v-else class="font-mono text-lg text-custom-teal">{{
             contractName
           }}</span>
         </div>
@@ -33,7 +33,7 @@
             class="w-10 h-3 bg-slate-200 rounded-full animate-[pulse_3s_ease-in_infinite]"
           ></div>
         </div>
-        <p v-else class="font-mono text-xl text-green-600">
+        <p v-else class="font-mono text-xl text-custom-teal">
           {{ totalEmission }}
           <span class="font-semibold italic text-sm">KgeCo2</span>
         </p>
@@ -110,11 +110,11 @@ export default {
 
 <style scoped>
 .tips {
-  @apply md:min-w-[15.5rem] md:w-1/4 h-fit flex flex-col items-center gap-4 font-medium text-white bg-green-600 rounded-md p-5 mb-5;
+  @apply md:min-w-[15.5rem] md:w-1/4 h-fit flex flex-col items-center gap-4 font-medium text-white bg-[#266e73] rounded-md p-5 mb-5;
 }
 
 .tips header {
-  @apply text-2xl font-bold underline;
+  @apply text-2xl font-bold;
 }
 
 .tips p {
@@ -134,6 +134,6 @@ export default {
 }
 
 .action-section button:last-child {
-  @apply border-green-600 hover:bg-green-600;
+  @apply border-[#266e73] hover:bg-[#266e73];
 }
 </style>

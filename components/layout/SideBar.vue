@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="min-w-[17rem] lg:visible fixed top-20 right-0 lg:static bg-green-600 z-50"
+    class="min-w-[17rem] lg:visible fixed top-20 right-0 lg:static bg-custom-teal z-40"
     :class="{ invisible: isMenuClosed }"
   >
     <section v-for="(menuItem, idx) in menuItems" :key="idx">
@@ -139,6 +139,7 @@ export default {
     },
     handleSideNavButtonClick(menuItem) {
       this.selectedMenuItem = menuItem
+      this.$store.dispatch('toggleMenu')
     },
   },
 }
@@ -146,7 +147,7 @@ export default {
 
 <style scoped>
 .active {
-  @apply bg-green-700 text-base;
+  @apply bg-teal-900 text-base;
 }
 
 nav {
@@ -162,7 +163,7 @@ nav section ul {
 }
 
 ul li {
-  @apply min-w-fit max-w-[11.5rem] min-h-fit h-10 flex items-center gap-2 text-sm font-semibold rounded-md border-green-800 cursor-pointer py-2 px-4;
+  @apply min-w-fit max-w-[11.5rem] min-h-fit h-10 flex items-center gap-2 text-sm font-semibold rounded-md cursor-pointer py-2 px-4;
 }
 
 ul li img {

@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="md:h-44 flex flex-col md:flex-row justify-around gap-7 md:gap-0 bg-green-600 text-white px-15 py-10"
+    class="md:h-44 flex flex-col md:flex-row justify-around gap-7 md:gap-0 bg-custom-teal text-white px-15 py-10"
   >
     <div
       class="flex flex-col-reverse items-center md:items-start order-last md:order-first gap-3"

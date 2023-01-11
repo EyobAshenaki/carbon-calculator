@@ -8,7 +8,7 @@
       :src="getImgSrc(item.image)"
       :alt="item.alt"
     />
-    <p class="text-green-500 text-center">{{ item.description }}</p>
+    <p class="text-custom-teal text-center">{{ item.description }}</p>
   </div>
 </template>
 

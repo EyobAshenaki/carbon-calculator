@@ -9,12 +9,14 @@
           >Contract Name</span
         >
         <div v-if="!contractName" class="flex items-center space-x-2">
-          <div class="w-16 h-4 bg-slate-200 rounded-full animate-pulse"></div>
           <div
-            class="w-28 h-4 bg-slate-200 rounded-full animate-[pulse_3s_ease-in_infinite]"
+            class="w-12 sm:w-16 h-3 sm:h-4 bg-slate-200 rounded-full animate-pulse"
+          ></div>
+          <div
+            class="w-20 sm:w-28 h-3 sm:h-4 bg-slate-200 rounded-full animate-[pulse_3s_ease-in_infinite]"
           ></div>
         </div>
-        <span v-else class="font-mono text-lg text-green-600">{{
+        <span v-else class="font-mono text-lg text-custom-teal">{{
           contractName
         }}</span>
       </div>
@@ -43,7 +45,7 @@
     </div>
 
     <!-- Slider section -->
-    <div class="flex flex-col items-center gap-1 py-10">
+    <div class="w-full sm:w-auto flex flex-col items-center gap-1 py-10">
       <div class="flex items-center gap-5">
         <slider
           :value="parseInt(sliderValue)"
@@ -54,11 +56,11 @@
         <select-input
           :value="selectedEmissionItem.targetUnit"
           :options="unitOptions"
-          class="w-32"
+          class="w-24 sm:w-32"
           @unitChange="handleUnitChange($event)"
         />
       </div>
-      <p class="font-medium text-lg text-green-600">
+      <p class="font-medium text-lg text-custom-teal">
         {{ selectedEmissionItem.name }}
       </p>
       <p>OR</p>
@@ -81,7 +83,7 @@
         Skip
       </button>
       <button
-        class="font-medium text-green-600 bg-white border border-green-600 rounded-md hover:text-white hover:bg-green-600 py-1 px-4"
+        class="font-medium text-custom-teal bg-white border border-custom-teal rounded-md hover:text-white hover:bg-custom-teal py-1 px-4"
         @click="handleNext"
       >
         Submit
@@ -188,7 +190,7 @@ export default {
 
     handleSkip() {
       // Proceeds to next section without saving data
-      this.$store.dispatch('emission/nextSection')
+      this.$store.dispatch('emission/nextSection', {})
     },
 
     handleNext() {
@@ -215,6 +217,6 @@ export default {
 }
 
 .active {
-  @apply bg-green-600 text-white;
+  @apply bg-[#266e73] text-white;
 }
 </style>

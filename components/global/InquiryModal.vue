@@ -38,7 +38,7 @@
         />
         <button
           type="submit"
-          class="w-fit bg-white text-green-600 border-2 border-green-600 hover:bg-green-600 hover:text-white font-semibold text-lg rounded-md px-4 py-2 md:py-1"
+          class="w-fit bg-white text-custom-teal border-2 border-custom-teal hover:bg-custom-teal hover:text-white font-semibold text-lg rounded-md px-4 py-2 md:py-1"
         >
           Submit
         </button>

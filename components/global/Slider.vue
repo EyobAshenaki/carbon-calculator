@@ -1,10 +1,10 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="w-80 relative">
+  <div class="w-44 sm:w-80 relative">
     <div
       class="progress-overlay w-full h-2 absolute rounded-md bg-gray-200"
     ></div>
-    <div class="progress h-2 absolute rounded-md bg-green-600 z-10"></div>
+    <div class="progress h-2 absolute rounded-md bg-custom-teal z-10"></div>
     <input
       v-model="rangeValue"
       class="range"
@@ -138,33 +138,33 @@ input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
 
   /* To center the thumb used this formula - margin-top = (track height in pixels / 2) - (thumb height in pixels /2) */
-  @apply h-5 w-5 appearance-none bg-green-600 rounded-full -mt-[6px] z-30;
+  @apply h-5 w-5 appearance-none bg-[#266e73] rounded-full -mt-[6px] z-30;
 }
 
 /***** Firefox *****/
 input[type='range']::-moz-range-thumb {
-  @apply h-5 w-5 bg-green-600 border-none rounded-full z-30;
+  @apply h-5 w-5 bg-[#266e73] border-none rounded-full z-30;
 }
 
 /***** Focus Styles *****/
 
 /***** Chrome, Safari, Opera, and Edge Chromium *****/
 input[type='range']:focus::-webkit-slider-thumb {
-  @apply outline-1 outline-green-600 outline-offset-2;
+  @apply outline-1 outline-[#266e73] outline-offset-2;
 }
 
 /******** Firefox ********/
 input[type='range']:focus::-moz-range-thumb {
-  @apply outline-1 outline-green-600 outline-offset-2;
+  @apply outline-1 outline-[#266e73] outline-offset-2;
 }
 
 /***** Bubble Styles *****/
 .bubble {
-  @apply absolute bottom-8 left-1/2 -translate-x-1/2 bg-green-600 text-white rounded-sm py-0.5 px-2;
+  @apply absolute bottom-8 left-1/2 -translate-x-1/2 bg-[#266e73] text-white rounded-sm py-0.5 px-2;
 }
 
 .bubble::after {
   content: '';
-  @apply w-2.5 h-2 absolute -bottom-1 left-1/2 -translate-x-1/2 bg-green-600 rotate-[62deg] skew-x-[35deg];
+  @apply w-2.5 h-2 absolute -bottom-1 left-1/2 -translate-x-1/2 bg-[#266e73] rotate-[62deg] skew-x-[35deg];
 }
 </style>

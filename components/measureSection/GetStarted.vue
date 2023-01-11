@@ -43,7 +43,7 @@ export default {
 
 <style scoped>
 h1 {
-  @apply font-medium text-xl text-green-600 text-center sm:text-start pb-4;
+  @apply font-medium text-xl text-[#266e73] text-center sm:text-start pb-4;
 }
 
 p {
@@ -55,10 +55,10 @@ form {
 }
 
 input[type='text'] {
-  @apply w-64 text-black bg-gray-100 border border-slate-300 rounded-md placeholder:italic placeholder:focus:text-green-600 focus:outline-none focus:ring-1 focus:border-green-600 focus:ring-green-600 ml-4 px-4 py-1.5;
+  @apply w-64 text-black bg-gray-100 border border-slate-300 rounded-md placeholder:italic placeholder:focus:text-[#266e73] focus:outline-none focus:ring-1 focus:border-[#266e73] focus:ring-[#266e73] ml-4 px-4 py-1.5;
 }
 
 button[type='submit'] {
-  @apply w-fit font-medium text-green-600 bg-white border-2 border-green-600 rounded-md hover:text-white hover:bg-green-600 px-8 py-1.5;
+  @apply w-fit font-medium text-[#266e73] bg-white border-2 border-[#266e73] rounded-md hover:text-white hover:bg-[#266e73] px-8 py-1.5;
 }
 </style>

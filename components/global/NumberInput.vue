@@ -76,11 +76,11 @@ input[type='number']::-webkit-outer-spin-button {
 
 .number-input button {
   -webkit-appearance: none;
-  @apply w-6 h-6 relative flex items-center justify-center rounded-full border border-slate-400 cursor-pointer hover:border-green-600 hover:bg-green-600 hover:ring-1 hover:ring-green-600;
+  @apply w-6 h-6 relative flex items-center justify-center rounded-full border border-slate-400 cursor-pointer hover:border-[#266e73] hover:bg-[#266e73] hover:ring-1 hover:ring-[#266e73];
 }
 
 .number-input input[type='number'] {
-  @apply w-16 text-center bg-gray-100 border border-slate-300 rounded-md focus:outline-none focus:border-green-600 focus:ring-1 focus:ring-green-600 py-1 px-2 mx-2;
+  @apply w-16 text-center bg-gray-100 border border-slate-300 rounded-md focus:outline-none focus:border-[#266e73] focus:ring-1 focus:ring-[#266e73] py-1 px-2 mx-2;
 }
 
 .number-input button::before,

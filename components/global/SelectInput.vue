@@ -61,15 +61,13 @@ export default {
   },
   methods: {
     handleFocus(e) {
-      document
-        .querySelector('label')
-        .classList.add('bottom-7', 'text-green-600', 'text-[0.7rem]')
+      document.querySelector('label').classList.add('bottom-7', 'text-[0.7rem]')
     },
     handleBlur() {
       if (!this.selectedValue) {
         document
           .querySelector('label')
-          .classList.remove('bottom-7', 'text-green-600', 'text-[0.7rem]')
+          .classList.remove('bottom-7', 'text-[0.7rem]')
       }
     },
   },
@@ -82,6 +80,6 @@ label {
 }
 
 select {
-  @apply appearance-none w-full h-8 text-base border-b-2 border-slate-600 focus:outline-none focus:border-green-600 px-1;
+  @apply appearance-none w-full h-8 text-base border-b-2 border-slate-600 focus:outline-none focus:border-[#266e73];
 }
 </style>
