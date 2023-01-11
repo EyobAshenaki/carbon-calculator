@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-80 flex flex-col justify-center items-center gap-10 rounded-2xl shadow-xl drop-shadow-xl border p-5"
+    class="h-80 flex flex-col justify-center items-center gap-10 rounded-2xl shadow-xl border p-5"
   >
     <img
       v-if="item.image"
@@ -8,7 +8,12 @@
       :src="getImgSrc(item.image)"
       :alt="item.alt"
     />
-    <p class="text-custom-teal text-center">{{ item.description }}</p>
+    <p
+      class="text-custom-teal text-center"
+      :class="{ 'font-semibold': !hasImage }"
+    >
+      {{ item.description }}
+    </p>
   </div>
 </template>
 
@@ -19,6 +24,11 @@ export default {
     item: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    hasImage() {
+      return this.item.image
     },
   },
   methods: {
