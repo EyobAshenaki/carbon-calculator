@@ -9,7 +9,9 @@
         <li
           v-for="(item, ItemIdx) in menuItem.items"
           :key="ItemIdx"
-          :class="{ active: selectedMenuItem === item.value }"
+          :class="{
+            active: selectedMenuItem === item.value && $route.name === 'index',
+          }"
           @click="handleSideNavButtonClick(item.value)"
         >
           <img :src="getIconUrl(item.icon)" :alt="item.alt" />
@@ -139,6 +141,7 @@ export default {
     },
     handleSideNavButtonClick(menuItem) {
       this.selectedMenuItem = menuItem
+      this.$router.push({ name: 'index' })
       this.$store.dispatch('toggleMenu')
     },
   },
