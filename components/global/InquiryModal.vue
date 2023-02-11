@@ -16,32 +16,71 @@
         class="flex flex-col md:flex-row items-center gap-4 md:gap-2"
       >
         <!-- Form Recipients when the form is submitted -->
-        <!-- ,abel@zeraftech.com,michael.testa@zeraftech.com -->
-        <input
+        <f-f
+          el="input"
           type="hidden"
           name="formto_googlesheets"
-          value="mihret@zeraftech.com,eyobasch.zeraf@gmail.com"
-        />
-        <input
-          type="text"
+          value="eyobasch.zeraf@gmail.com, abel@zeraftech.com"
+        >
+        </f-f>
+        <f-f
+          el="input"
+          type="email"
           name="Email"
           :value="inquiry.email"
           placeholder="Email address"
           class="w-72 text-black bg-gray-200 rounded-md px-4 py-2 md:py-2"
-        />
-        <input type="text" name="Type" :value="response.type" class="hidden" />
-        <input
+        >
+        </f-f>
+        <f-f
+          el="input"
+          type="text"
+          name="Type"
+          :value="response.type"
+          class="hidden"
+        >
+        </f-f>
+        <f-f
+          el="input"
+          type="text"
+          name="Type"
+          :value="response.name"
+          class="hidden"
+        >
+        </f-f>
+        <f-f
+          v-if="response.title"
+          el="input"
+          type="text"
+          name="Type"
+          :value="response.title"
+          class="hidden"
+        >
+        </f-f>
+        <f-f
+          v-if="response.price"
+          el="input"
+          type="text"
+          name="Type"
+          :value="response.price"
+          class="hidden"
+        >
+        </f-f>
+        <f-f
+          el="input"
           type="text"
           name="Message"
           :value="response.message"
           class="hidden"
-        />
-        <button
+        >
+        </f-f>
+        <f-f
+          el="button"
           type="submit"
           class="w-fit bg-white text-custom-teal border-2 border-custom-teal hover:bg-custom-teal hover:text-white font-semibold text-lg rounded-md px-4 py-2 md:py-1"
         >
           Submit
-        </button>
+        </f-f>
       </form>
     </div>
   </div>
@@ -65,6 +104,37 @@ export default {
       inquiry: {
         email: '',
       },
+    }
+  },
+  mounted() {
+    // get an array of f-f elements to convert
+    const els = document.getElementsByTagName('f-f')
+    // loop through the array of elements
+    for (let i = els.length - 1; i >= 0; i--) {
+      // create an object of the attributes
+      const attrs = els[i].getAttributeNames().reduce((acc, name) => {
+        return { ...acc, [name]: els[i].getAttribute(name) }
+      }, {})
+      // create a new element using the el attribute
+      const el = document.createElement(attrs.el)
+      // loop through the array of attributes
+      for (const key in attrs) {
+        // filter out the el attribute
+        // eslint-disable-next-line no-prototype-builtins
+        if (attrs.hasOwnProperty(key) && key !== 'el') {
+          // add all other attributes to the new element
+          el.setAttribute(`${key}`, `${attrs[key]}`)
+        }
+      }
+      // loop though the child nodes of the f-f
+      while (els[i].childNodes.length > 0) {
+        // append child nodes to the new element
+        el.appendChild(els[i].childNodes[0])
+      }
+      // insert the new element into the DOM
+      els[i].parentNode.insertBefore(el, els[i])
+      // remove the f-f element from the DOM
+      els[i].remove()
     }
   },
   methods: {

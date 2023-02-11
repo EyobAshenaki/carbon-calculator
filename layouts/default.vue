@@ -28,6 +28,10 @@ export default {
       return this.$store.getters.getToastState
     },
   },
+  beforeMount() {
+    // register the custom element
+    window.customElements.define('f-f', class extends HTMLElement {})
+  },
   mounted() {
     /**
      * Get the form submission result from the query string.
@@ -41,11 +45,12 @@ export default {
           message: 'Something went wrong, please try again',
           type: 'error',
         })
+      } else {
+        this.$store.dispatch('setAlert', {
+          message: 'Form submitted successfully',
+          type: 'success',
+        })
       }
-      this.$store.dispatch('setAlert', {
-        message: 'Form submitted successfully',
-        type: 'success',
-      })
 
       this.$store.dispatch('toggleToast')
     }

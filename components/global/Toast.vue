@@ -3,7 +3,12 @@
     class="w-full max-w-xs fixed top-28 right-5 z-[5] flex flex-col text-gray-500 bg-gray-100 rounded-lg rounded-b-none shadow"
     role="alert"
   >
-    <div class="flex items-center p-4 pb-2">
+    <div class="w-full relative flex items-center p-5 pb-3">
+      <button class="absolute top-1 right-2" @click="closeToast">
+        <close-icon
+          class="w-6 h-6 cursor-pointer rounded-full text-black hover:bg-gray-200 p-1"
+        />
+      </button>
       <div
         class="w-8 h-8 inline-flex flex-shrink-0 justify-center items-center rounded-lg"
         :class="toastColor"
@@ -25,11 +30,13 @@
 
 <script>
 import NotificationOutlineIcon from '~/components/icons/NotificationOutlineIcon.vue'
+import CloseIcon from '@/components/icons/CloseIcon.vue'
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Toast',
   components: {
     NotificationOutlineIcon,
+    CloseIcon,
   },
   computed: {
     message() {
