@@ -6,6 +6,7 @@
       <side-bar />
       <nuxt />
     </section>
+    <advert-section />
     <footer-section />
   </div>
 </template>
@@ -13,15 +14,17 @@
 <script>
 import Toast from '~/components/global/Toast.vue'
 import NavBar from '~/components/layout/NavBar.vue'
-import FooterSection from '~/components/layout/FooterSection.vue'
 import SideBar from '~/components/layout/SideBar.vue'
+import FooterSection from '~/components/layout/FooterSection.vue'
+import AdvertSection from '~/components/layout/AdvertSection.vue'
 export default {
   name: 'DefaultLayout',
   components: {
     Toast,
     NavBar,
-    FooterSection,
     SideBar,
+    AdvertSection,
+    FooterSection,
   },
   computed: {
     toastOpen() {
